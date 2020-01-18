@@ -177,6 +177,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/GIT-SSH%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
+      <meta itemprop="name" content="酵父">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="goon Fred">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/18/GIT-SSH%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">GIT & SSH配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-18 13:45:34 / 修改时间：13:57:14" itemprop="dateCreated datePublished" datetime="2020-01-18T13:45:34+08:00">2020-01-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="git配置公钥SSH"><a href="#git配置公钥SSH" class="headerlink" title="git配置公钥SSH"></a>git配置公钥SSH</h2><h2 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h2><p>先大概说一下SSH是个什么东西；</p>
+<p>SSH为Secure Shell的缩写，由IETF的网络小组（Network Working Group）所制定；SSH为建立在应用层基础上的安全协议。SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。SSH客户端适用于多种平台。几乎所有UNIX平台—包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。<br>一般我们都会使用到两种方式去登陆SSH，密码登陆和证书登陆。如果使用密码登陆，很有可能会遭受恶意攻击，所以在实际的工作中和大多数的互联网公司，都是会使用证书去登陆的。</p>
+<h2 id="SSH证书使用"><a href="#SSH证书使用" class="headerlink" title="SSH证书使用"></a>SSH证书使用</h2><h3 id="如何生成公钥私钥"><a href="#如何生成公钥私钥" class="headerlink" title="如何生成公钥私钥"></a>如何生成公钥私钥</h3><p>客户端生成证书:私钥和公钥，然后私钥放在客户端，妥当保存，一般为了安全，客户端在生成私钥时，会设置一个密 码，以后每次登录ssh服务器时，客户端都要输入密码解开私钥；</p>
+<p>1）在本地创建ssh key</p>
+<p>打开终端，输入以下命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>直接点回车，说明会在默认文件id_rsa上生成ssh key。 </p>
+<p>然后系统要求输入密码，我们在这里直接按回车表示不设密码；</p>
+<p>重复密码时也是直接回车，之后提示你shh key已经生成成功。</p>
+<p>也就是连续按三次回车；</p>
+<p>到此，已生成ssh key(在<code>C:\Users\Administrator\.ssh</code>中的id_rsa.pub文件内)；</p>
+<p>这里<code>~/.SSH</code>文件夹下就生成了两个文件，一个公钥(pub后缀)，一个私钥。</p>
+<p>2）获取本地生成的ssh key</p>
+<p>然后在终端输入：open ~/.ssh 回车即可打开对应生成的文件，</p>
+<p>或者直接通过生成文件的路径打开id_rsa.pub，复制里面的key。里面的key是一对看不懂的字符数字组合，不用管它，直接复制。</p>
+<p>另一个<code>id_rsa</code>文件，为你的客户端私钥；</p>
+<h3 id="服务器添加公钥"><a href="#服务器添加公钥" class="headerlink" title="服务器添加公钥"></a>服务器添加公钥</h3><p>服务器添加信用公钥：把客户端生成的公钥，上传到ssh服务器，添加到指定的文件中，这样，就完成ssh证书登录的配置了。</p>
+<p>1）假设客户端想通过私钥要登录其他ssh服务器，同理，就可以把公钥上传到其他ssh服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比如以码云`gitee.com`来举例；</span><br><span class="line"></span><br><span class="line">打开个人中心 =&gt; 左侧安全设置 =&gt; SSH公钥 =&gt; 把本地`id_rsa_pub`中的公钥粘贴到这里 =&gt; 新增服务器上的公钥验证；</span><br></pre></td></tr></table></figure>
+
+<p>2）验证是否配置成功</p>
+<p>在git bash下输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+
+<p>回车就会看到：<code>You’ve successfully authenticated, but gitee does not provide shell access 。</code></p>
+<p>这就表示已成功连上gitee，相当于服务端就认可你这个配置公钥的客户端是可以安全连接的。</p>
+<p><strong>这里就完成了服务器添加公钥， 就可以正常使用SSH进行仓库的pull &amp; push操作啦</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/2019%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -322,20 +419,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
