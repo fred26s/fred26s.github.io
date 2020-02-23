@@ -47,28 +47,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="goon Fred">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="概述本篇博文主要记录TS稍进阶的一些基础内容，大致以下几个知识点：  泛型 class（ES6和TS） 枚举 类型兼容性  泛型泛型指在函数定义时，可以在函数括号前先定义一个泛型变量容器，并不具体指定类型；然后函数括号中就可以使用这个泛型容器来代替类型； 这个泛型变量可以在函数调用时传入，确定具体的类型； 1234567&#x2F;&#x2F; 定义泛型变量const getValue = &amp;lt;T&amp;gt;(pr1">
+<meta name="keywords" content="TypeScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typescript轻度进阶">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;23&#x2F;typescript-02&#x2F;index.html">
 <meta property="og:site_name" content="goon Fred">
+<meta property="og:description" content="概述本篇博文主要记录TS稍进阶的一些基础内容，大致以下几个知识点：  泛型 class（ES6和TS） 枚举 类型兼容性  泛型泛型指在函数定义时，可以在函数括号前先定义一个泛型变量容器，并不具体指定类型；然后函数括号中就可以使用这个泛型容器来代替类型； 这个泛型变量可以在函数调用时传入，确定具体的类型； 1234567&#x2F;&#x2F; 定义泛型变量const getValue = &amp;lt;T&amp;gt;(pr1">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-23T09:49:22.922Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/02/23/typescript-02/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>goon Fred</title>
+  <title>typescript轻度进阶 | goon Fred</title>
   
 
 
@@ -173,10 +177,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/typescript-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -190,8 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/23/typescript-02/" class="post-title-link" itemprop="url">typescript轻度进阶</a>
+          typescript轻度进阶
         </h1>
 
         <div class="post-meta">
@@ -227,7 +230,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇博文主要记录TS稍进阶的一些基础内容，大致以下几个知识点：</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇博文主要记录TS稍进阶的一些基础内容，大致以下几个知识点：</p>
 <ul>
 <li>泛型</li>
 <li>class（ES6和TS）</li>
@@ -510,474 +513,36 @@
 
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/TypeScript/" rel="tag"># TypeScript</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/TypeScript-01/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
-      <meta itemprop="name" content="酵父">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="goon Fred">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/22/TypeScript-01/" class="post-title-link" itemprop="url">TypeScript初探</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-22 22:29:00 / 修改时间：22:52:49" itemprop="dateCreated datePublished" datetime="2020-02-22T22:29:00+08:00">2020-02-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="什么是-TypeScript"><a href="#什么是-TypeScript" class="headerlink" title="什么是 TypeScript"></a>什么是 TypeScript</h1><p>我觉得学一个东西首先肯定得先弄懂它是什么，两句话写下对TypeScript 的理解如下：</p>
-<p><a href="http://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a> 是 JavaScript 的一个超集，主要提供了<strong>类型系统</strong>和<strong>对 ES6 的支持</strong>，它由 Microsoft 开发，代码开源于 GitHub上。</p>
-<p>我觉得直观作用有，解决开发时自己为了健壮性对代码的类型判断，交给ts去做。</p>
-<p>其次引用官网的定义：</p>
-<blockquote>
-<p>TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Any browser. Any host. Any OS. Open source.</p>
-</blockquote>
-<p>翻译成中文即是：</p>
-<blockquote>
-<p>TypeScript 是 JavaScript 的类型的超集，它可以编译成纯 JavaScript。编译出来的 JavaScript 可以运行在任何浏览器上。TypeScript 编译工具可以运行在任何服务器和任何系统上。TypeScript 是开源的。</p>
-</blockquote>
-<h2 id="TypeScript-的缺点"><a href="#TypeScript-的缺点" class="headerlink" title="TypeScript 的缺点"></a>TypeScript 的缺点</h2><p>任何事物都是有两面性的，TypeScript 的弊端在于：</p>
-<ul>
-<li>有一定的学习成本，需要理解接口（Interfaces）、泛型（Generics）、类（Classes）、枚举类型（Enums）等前端js中不是很熟悉的概念</li>
-<li>短期可能会增加一些开发成本，毕竟要多写一些类型的定义，不过对于一个需要长期维护的项目，TypeScript 能够减少其维护成本，但对于小型临时项目自己斟酌，因为毕竟写类型定义也是要额外花时间精力的</li>
-<li>集成到构建流程需要一些工作量</li>
-<li>可能和一些库结合的不是很完美</li>
-</ul>
-<p>大家可以根据自己团队和项目的情况判断是否需要使用 TypeScript。</p>
-<h2 id="使用编译"><a href="#使用编译" class="headerlink" title="使用编译"></a>使用编译</h2><p>TypeScript 中，使用 <code>:</code> 指定变量的类型，<code>:</code> 的前后有没有空格都可以。</p>
-<p><strong>TypeScript 编译的时候即使报错了，还是会生成编译结果</strong>，我们仍然可以使用这个编译之后的文件。</p>
-<p>如果要在报错的时候终止 js 文件的生成，可以在 <code>tsconfig.json</code> 中配置 <code>noEmitOnError</code> 即可。</p>
-<h1 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h1><p>JavaScript 的类型分为两种：原始数据类型和对象类型。</p>
-<p><strong>原始数据类型</strong>包括：布尔值、数值、字符串、<code>null</code>、<code>undefined</code> 以及 ES6 中的新类型 <code>Symbol</code>。</p>
-<p><strong>这里需要注意：</strong> </p>
-<p>在 TypeScript 中，<code>boolean</code> 是 JavaScript 中的基本类型，而 <code>Boolean</code> 是 JavaScript 中的构造函数。其他基本类型（除了 <code>null</code> 和 <code>undefined</code>）一样，不再赘述。</p>
-<h2 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h2><p>JavaScript 没有空值（Void）的概念，在 TypeScript 中，<strong>可以用 <code>void</code> 表示没有任何返回值的函数</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function alertName(): void &#123;</span><br><span class="line">	alert(&apos;My name is Tom&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>声明一个 <code>void</code> 类型的变量没有什么用，因为你只能将它赋值为 <code>undefined</code> 和 <code>null</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let unusable: void = undefined;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h2><p>在 TypeScript 中，可以使用 <code>null</code> 和 <code>undefined</code> 来定义这两个原始数据类型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let u: undefined = undefined;let n: null = null;</span><br></pre></td></tr></table></figure>
-
-<p>与 <code>void</code> 的区别是，<code>undefined</code> 和 <code>null</code> 是所有类型的子类型。也就是说 <code>undefined</code> 类型的变量，可以赋值给 <code>number</code> 类型的变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 这样不会报错let num: number = undefined;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 这样也不会报错let u: undefined;let num: number = u;</span><br></pre></td></tr></table></figure>
-
-<p>而 <code>void</code> 类型的变量不能赋值给 <code>number</code> 类型的变量；</p>
-<h1 id="任意值"><a href="#任意值" class="headerlink" title="任意值"></a>任意值</h1><p>但如果是 <code>any</code> 类型，则允许被赋值为任意类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let myFavoriteNumber: any = &apos;seven&apos;;</span><br><span class="line">myFavoriteNumber = 7;</span><br></pre></td></tr></table></figure>
-
-<h2 id="任意值的属性和方法"><a href="#任意值的属性和方法" class="headerlink" title="任意值的属性和方法"></a>任意值的属性和方法</h2><p>在任意值上访问任何属性都是允许的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let anyThing: any = &apos;Tom&apos;;</span><br><span class="line">anyThing = false;</span><br><span class="line">anyThing.setName(&apos;Jerry&apos;);</span><br><span class="line">anyThing.setName(&apos;Jerry&apos;).sayHello();</span><br><span class="line">anyThing.myName.setFirstName(&apos;Cat&apos;);</span><br></pre></td></tr></table></figure>
-
-<p>可以认为，<strong>声明一个变量为任意值之后，对它的任何操作，返回的内容的类型都是任意值</strong>。</p>
-<h1 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h1><p>TypeScript 会在没有明确的指定类型的时候自动推测出一个类型，这就是类型推论。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let myFavoriteNumber = &apos;seven&apos;;</span><br><span class="line">myFavoriteNumber = 7;</span><br><span class="line"></span><br><span class="line">// index.ts(2,1): error TS2322: Type &apos;number&apos; is not assignable to type &apos;string&apos;.</span><br></pre></td></tr></table></figure>
-
-<p>实际上等价于 ↓</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let myFavoriteNumber: string = &apos;seven&apos;;</span><br><span class="line">myFavoriteNumber = 7;</span><br><span class="line"></span><br><span class="line">// index.ts(2,1): error TS2322: Type &apos;number&apos; is not assignable to type &apos;string&apos;.</span><br></pre></td></tr></table></figure>
-
-<p><strong>例外需要注意：如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成</strong> <code>any</code> <strong>类型而完全不被类型检查</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let myFavoriteNumber;</span><br><span class="line">myFavoriteNumber = &apos;seven&apos;;</span><br><span class="line">myFavoriteNumber = 7;            &lt;===== ok</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h1><p>联合类型使用 <code>|</code> 分隔每个类型，表示取值可以为多种类型中的一种。</p>
-<h2 id="函数中访问联合类型的属性或方法"><a href="#函数中访问联合类型的属性或方法" class="headerlink" title="函数中访问联合类型的属性或方法"></a>函数中访问联合类型的属性或方法</h2><p>当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们<strong>只能访问此联合类型的所有类型里共有的属性或方法</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function getLength(something: string | number): number &#123;</span><br><span class="line">    return something.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错index.ts(2,22): error TS2339: Property &apos;length&apos; does not exist on type &apos;string | number&apos;.</span><br><span class="line">//   Property &apos;length&apos; does not exist on type &apos;number&apos;.</span><br></pre></td></tr></table></figure>
-
-<p>上例中，<code>length</code> 不是 <code>string</code> 和 <code>number</code> 的共有属性，所以会报错。</p>
-<p><strong>函数中使用的方法，必须是设置联合类型中共有的方法。</strong></p>
-<h2 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h2><p><a href="">之前提到过</a>，当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们<strong>只能访问此联合类型的所有类型里共有的属性或方法</strong>：</p>
-<p>而有时候，我们确实需要在还不确定类型的时候就访问其中一个类型的属性或方法，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getLength(something: string | number): number &#123;</span><br><span class="line">    if (something.length) &#123;</span><br><span class="line">        return something.length;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return something.toString().length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么我们就需要给不确定的类型做断言；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getLength(something: string | number): number &#123;</span><br><span class="line">    if ((&lt;string&gt;something).length) &#123;    // 或者使用 (something as string)</span><br><span class="line">        return (&lt;string&gt;something).length;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return something.toString().length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将类型确定为string，那么就可以正常的使用length属性来做if判断;</p>
-<blockquote>
-<p>还有一种方法可以使用<code>类型保护</code>，这个在后面的高级类型中记录。</p>
-</blockquote>
-<h2 id="变量中联合类型的类型推断"><a href="#变量中联合类型的类型推断" class="headerlink" title="变量中联合类型的类型推断"></a>变量中联合类型的类型推断</h2><p>联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let myFavoriteNumber: string | number;</span><br><span class="line">myFavoriteNumber = &apos;seven&apos;;</span><br><span class="line">console.log(myFavoriteNumber.length); // 5</span><br><span class="line">myFavoriteNumber = 7;</span><br><span class="line">console.log(myFavoriteNumber.length); // 编译时报错</span><br><span class="line"></span><br><span class="line">// index.ts(5,30): error TS2339: Property &apos;length&apos; does not exist on type &apos;number&apos;.</span><br></pre></td></tr></table></figure>
-
-<p>上例中，第二行的 <code>myFavoriteNumber</code> 被推断成了 <code>string</code>，访问它的 <code>length</code> 属性不会报错。</p>
-<p>而第四行的 <code>myFavoriteNumber</code> 被推断成了 <code>number</code>，访问它的 <code>length</code> 属性时就报错了。</p>
-<h1 id="对象的类型-接口"><a href="#对象的类型-接口" class="headerlink" title="对象的类型-接口"></a>对象的类型-接口</h1><h2 id="什么是接口"><a href="#什么是接口" class="headerlink" title="什么是接口"></a>什么是接口</h2><p>在面向对象语言中，接口（Interfaces）是一个很重要的概念，它是对行为的抽象，而具体如何行动需要由类（classes）去实现（implement）。</p>
-<p>TypeScript 中的接口是一个非常灵活的概念，除了可用于对类的一部分行为进行抽象以外，也常用于对「对象的形状（Shape）」进行描述。</p>
-<p><strong>我认为这里的接口可以理解为对一类对象的”形状”的具体描述，”形状”就是指这个对象的key-value结构和命名赋值方式；</strong></p>
-<p><strong>相当于接口就是给一个对象造了一个固定形状的容器，后面使用这个容器生产出来的对象都是一个模样</strong></p>
-<p>使用某个定义的接口，就像在给这个容器中填满内容，当你填满内容，那么出现的这个对象也就是容器的形状。</p>
-<h2 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    age: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let tom: Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    age: 25</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>上面的例子中，我们定义了一个接口 <code>Person</code>，接着定义了一个变量 <code>tom</code>，它的类型是 <code>Person</code>。这样，我们就约束了 <code>tom</code> 的形状必须和接口 <code>Person</code> 一致。</p>
-<p>定义的变量比接口少了一些属性或多一些属性都是不允许的：</p>
-<h2 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h2><p>有时我们希望不要完全匹配一个形状，那么可以用可选属性：</p>
-<p>即使用<code>?</code>来定义key键：代表着可选</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    age?: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let tom: Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="任意属性"><a href="#任意属性" class="headerlink" title="任意属性"></a>任意属性</h2><p>有时候我们希望一个接口允许有任意的属性，可以使用如下方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    age?: number;                   // 这里返回值也必须为string</span><br><span class="line">    [propName: string]: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let tom: Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    age: 18,                // 类型为number，报错</span><br><span class="line">    gender: &apos;male&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>[propName: string]</code> 定义了任意属性取 <code>string</code> 类型的值。</p>
-<p><strong>这里需要注意，这个任意属性的写法属于索引签名； 实际意义可以理解为当我用<code>string</code>类型去索引<code>Person</code>这个接口对象的时候，返回值是<code>string</code>类型。</strong></p>
-<p>也就表示，如果使用string定义了任意属性[propname]，那么对象中如果存在其他可选属性，也必须和[propname]的类型保持一致，必须是string。</p>
-<p>这句话怎么理解呢？</p>
-<p>所以我在一个容器中设置了任意属性，则其他指定的<code>属性</code>也必须遵循当前容器中<code>任意条件</code>的限制规则。</p>
-<p>这也就能理解，为什么我设置的可选属性<code>age?:number</code>为<code>number</code>， 但我在下面定义了任意属性为<code>string</code>，这个<code>age</code>就也要限制为string类型了，否则会报错。</p>
-<h2 id="只读属性"><a href="#只读属性" class="headerlink" title="只读属性"></a>只读属性</h2><p>有时候我们希望对象中的一些字段只能在创建的时候被赋值，后期不可修改，那么可以用 <code>readonly</code> 定义只读属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    readonly id: number;</span><br><span class="line">    name: string;</span><br><span class="line">    age?: number;</span><br><span class="line">    [propName: string]: any;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let tom: Person = &#123;</span><br><span class="line">    id: 89757,</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    gender: &apos;male&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">tom.id = 9527;</span><br><span class="line"></span><br><span class="line">// index.ts(14,5): error TS2540: Cannot assign to &apos;id&apos; because it is a constant or a read-only property.</span><br></pre></td></tr></table></figure>
-
-<h2 id="混合接口"><a href="#混合接口" class="headerlink" title="混合接口"></a>混合接口</h2><p>如果一个接口既描述了函数的输入与输出是一个函数接口，同时又具有其他成员，可以用来描述对象的属性或方法；那么就构成了一个混合接口；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 混合接口</span><br><span class="line">interface counter &#123;</span><br><span class="line">  (number): void</span><br><span class="line">  count: number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const getCounter = (num: number): counter =&gt; &#123;</span><br><span class="line">  const c = () =&gt; &#123; c.count++ &#125;</span><br><span class="line">  c.count = num;</span><br><span class="line">  return c;</span><br><span class="line">&#125;</span><br><span class="line">getCounter.count = 6;</span><br><span class="line"></span><br><span class="line">const counter: counter = getCounter(getCounter.count);</span><br><span class="line"></span><br><span class="line">counter(getCounter.count);</span><br><span class="line">console.log(counter.count);  // 7</span><br><span class="line">counter(getCounter.count);</span><br><span class="line">console.log(counter.count); // 8</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h1><p>在 TypeScript 中，数组类型有多种定义方式，比较灵活。</p>
-<h2 id="any-在数组中的应用"><a href="#any-在数组中的应用" class="headerlink" title="any 在数组中的应用"></a>any 在数组中的应用</h2><p>一个比较常见的做法是，用 <code>any</code> 表示数组中允许出现任意类型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let list: any[] = [&apos;xxxxx&apos;, 25, &#123; website: &apos;http://xxxx.com&apos; &#125;];</span><br></pre></td></tr></table></figure>
-
-<p>如果要限制数组Item类型，则替换any类型， 如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let fibonacci: number[] = [1, 1, 2, 3, 5];</span><br></pre></td></tr></table></figure>
-
-<p>那么该数组就为一个纯数值数组，甚至不允许在内置方法中添加非数组item。</p>
-<h2 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h2><p>类数组（Array-like Object）不是数组类型，比如 <code>arguments</code>，或<code>HTMLCollection</code>元素集合等。</p>
-<p>常用的类数组都有自己内置的接口定义，如 <code>IArguments</code>, <code>NodeList</code>, <code>HTMLCollection</code> 等：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sum() &#123;</span><br><span class="line">    let args: IArguments = arguments;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>直接使用内置对象接口即可；</p>
-<h1 id="函数的类型"><a href="#函数的类型" class="headerlink" title="函数的类型"></a>函数的类型</h1><h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>在 JavaScript 中，有两种常见的定义函数的方式——函数声明（Function Declaration）和函数表达式（Function Expression）：</p>
-<p>函数声明直接使用类型定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sum(x: number, y: number): number &#123;</span><br><span class="line">    return x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里表示两个参数都是<code>number</code>输入，函数输出也为<code>number</code></p>
-<p>注意，<strong>输入多余的（或者少于要求的）参数，是不被允许的</strong>：也就是实参要和形参个数一致。</p>
-<p>函数表达式的方式看下面的<code>接口定义函数的形状</code>;</p>
-<h2 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h2><p>前面提到，输入多余的（或者少于要求的）参数，是不允许的。<strong>那么如何定义可选的参数呢？</strong></p>
-<p>与接口中的可选属性类似，我们用 <code>?</code> 表示可选的参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function buildName(firstName: string, lastName?: string) &#123;</span><br><span class="line">    if (lastName) &#123;</span><br><span class="line">        return firstName + &apos; &apos; + lastName;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return firstName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let tomcat = buildName(&apos;Tom&apos;, &apos;Cat&apos;);</span><br><span class="line">let tom = buildName(&apos;Tom&apos;);</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，可选参数必须接在必需参数后面。换句话说，<strong>可选参数后面不允许再出现必需参数了</strong>：</p>
-<h2 id="参数默认值"><a href="#参数默认值" class="headerlink" title="参数默认值"></a>参数默认值</h2><p>在 ES6 中，我们允许给函数的参数添加默认值，<strong>TypeScript 会将添加了默认值的参数识别为可选参数</strong>：</p>
-<p>此时就不受「可选参数必须接在必需参数后面」的限制了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function buildName(firstName: string = &apos;Tom&apos;, lastName: string) &#123;</span><br><span class="line">    return firstName + &apos; &apos; + lastName;</span><br><span class="line">&#125;</span><br><span class="line">let tomcat = buildName(&apos;Tom&apos;, &apos;Cat&apos;);</span><br><span class="line">let cat = buildName(undefined, &apos;Cat&apos;);</span><br></pre></td></tr></table></figure>
-
-<p>也就是说<strong>身为默认值的可选参数</strong>，后面可以出现必须参数。</p>
-<h2 id="用接口定义函数的形状"><a href="#用接口定义函数的形状" class="headerlink" title="用接口定义函数的形状"></a>用接口定义函数的形状</h2><p>我们也可以使用接口的方式来定义一个函数需要符合的形状：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface SearchFunc &#123;</span><br><span class="line">    (source: string, subString: string): boolean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let mySearch: SearchFunc;</span><br><span class="line">mySearch = function(source: string, subString: string) &#123;</span><br><span class="line">    return source.search(subString) !== -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样子mySearch就只能赋值为一个函数，并且这个函数的<strong>形参名，形参类型</strong>，以及这个<strong>函数的返回值</strong>类型都必须<strong>符合接口的定义形状</strong>。</p>
-<h2 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h2><p>ES6 中，可以使用 <code>...rest</code> 的方式获取函数中的剩余参数（rest 参数）：</p>
-<p>在TS中，我们同样可以使用…rest参数并指定类型，因为剩余参数本质是一个数组，所以给这个数组可以指定每一项的类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function push(array: any[], ...items: any[]) &#123;</span><br><span class="line">    items.forEach(function(item) &#123;</span><br><span class="line">        array.push(item);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let a = [];</span><br><span class="line">push(a, 1, 2, 3);</span><br></pre></td></tr></table></figure>
-
-<p>剩余参数只能作为最后一个形参使用。</p>
-<h1 id="symbol类型"><a href="#symbol类型" class="headerlink" title="symbol类型"></a>symbol类型</h1><p>ES6中的Symbol类型也在ts中完全支持；</p>
-<p>类型特点：</p>
-<ul>
-<li><p>唯一，就算传入相同标识符，两个symbol值也互不相等；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const s1 = Symbol(&apos;sym&apos;);</span><br><span class="line">const s2 = Symbol(&apos;sym&apos;);</span><br><span class="line">console.log(s1 === s2);  // false;</span><br></pre></td></tr></table></figure>
-
-<p>并且可用于对象中的键值，好处是不会重复；</p>
-</li>
-<li><p>不可遍历</p>
-<p>对象中使用Symbol设置的键值对，不能通过<code>for...in</code> &amp; <code>Object.keys</code> &amp; <code>Object.getOwnPropertyNames</code>等方法遍历；</p>
-<p>要想遍历，必须使用<code>Object.getOwnPropertySymbols</code> &amp; <code>Reflect.ownKeys()</code>方法获取；</p>
-</li>
-<li><p>可以作为类的私有方法/属性来使用；</p>
-</li>
-</ul>
-<h2 id="Symbol的两个方法"><a href="#Symbol的两个方法" class="headerlink" title="Symbol的两个方法"></a>Symbol的两个方法</h2><ul>
-<li><p>Symbol.for()</p>
-<p>前文说过使用Symbol创建出来的值具有唯一性，就算使用相同标识符的两个也不相等；</p>
-<p>但使用Symbol.for()创建出来的值，相当于全局Symbol，如果此前创建过相同标识的全局Symbol，那么就不会重复创建；</p>
-<p>会用之前Symbol.for创建的值，来直接赋值给s2；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const s1 = Symbol.for(&apos;the&apos;);</span><br><span class="line">const s2 = Symbol.for(&apos;the&apos;);</span><br><span class="line">console.log(s1 === s2);          // true;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Symbol.forKey( )</p>
-<p>返回之前使用<code>Symbol.for</code>定义的标识内容；</p>
-<p>如： <code>Symbol.for(&#39;the&#39;)</code>， </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const s1 = Symbol.for(&apos;the&apos;);</span><br><span class="line">const s2 = Symbol.keyFor(s1);</span><br><span class="line">console.log(s2);          // the;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/GIT-SSH%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
-      <meta itemprop="name" content="酵父">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="goon Fred">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/18/GIT-SSH%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">GIT & SSH配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-18 13:45:34 / 修改时间：14:12:59" itemprop="dateCreated datePublished" datetime="2020-01-18T13:45:34+08:00">2020-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="git配置公钥SSH"><a href="#git配置公钥SSH" class="headerlink" title="git配置公钥SSH"></a>git配置公钥SSH</h2><h2 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h2><p>先大概说一下SSH是个什么东西；</p>
-<p>SSH为Secure Shell的缩写，由IETF的网络小组（Network Working Group）所制定；SSH为建立在应用层基础上的安全协议。SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。SSH客户端适用于多种平台。几乎所有UNIX平台—包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。<br>一般我们都会使用到两种方式去登陆SSH，密码登陆和证书登陆。如果使用密码登陆，很有可能会遭受恶意攻击，所以在实际的工作中和大多数的互联网公司，都是会使用证书去登陆的。</p>
-<h2 id="SSH证书使用"><a href="#SSH证书使用" class="headerlink" title="SSH证书使用"></a>SSH证书使用</h2><h3 id="如何生成公钥私钥"><a href="#如何生成公钥私钥" class="headerlink" title="如何生成公钥私钥"></a>如何生成公钥私钥</h3><p>客户端生成证书:私钥和公钥，然后私钥放在客户端，妥当保存，一般为了安全，客户端在生成私钥时，会设置一个密 码，以后每次登录ssh服务器时，客户端都要输入密码解开私钥；</p>
-<p>1）在本地创建ssh key</p>
-<p>打开终端，输入以下命令行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>直接点回车，说明会在默认文件id_rsa上生成ssh key。 </p>
-<p>然后系统要求输入密码，我们在这里直接按回车表示不设密码；</p>
-<p>重复密码时也是直接回车，之后提示你shh key已经生成成功。</p>
-<p>也就是连续按三次回车；</p>
-<p>到此，已生成ssh key(在<code>C:\Users\Administrator\.ssh</code>中的id_rsa.pub文件内)；</p>
-<p>这里<code>~/.SSH</code>文件夹下就生成了两个文件，一个公钥(pub后缀)，一个私钥。</p>
-<p>2）获取本地生成的ssh key</p>
-<p>然后在终端输入：open ~/.ssh 回车即可打开对应生成的文件，</p>
-<p>或者直接通过生成文件的路径打开id_rsa.pub，复制里面的key。里面的key是一对看不懂的字符数字组合，不用管它，直接复制。</p>
-<p>另一个<code>id_rsa</code>文件，为你的客户端私钥；</p>
-<h3 id="服务器添加公钥"><a href="#服务器添加公钥" class="headerlink" title="服务器添加公钥"></a>服务器添加公钥</h3><p>服务器添加信用公钥：把客户端生成的公钥，上传到ssh服务器，添加到指定的文件中，这样，就完成ssh证书登录的配置了。</p>
-<p>1）假设客户端想通过私钥要登录其他ssh服务器，同理，就可以把公钥上传到其他ssh服务器。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比如以码云`gitee.com`来举例；</span><br><span class="line"></span><br><span class="line">打开个人中心 =&gt; 左侧安全设置 =&gt; SSH公钥 =&gt; 把本地`id_rsa_pub`中的公钥粘贴到这里 =&gt; 新增服务器上的公钥验证；</span><br></pre></td></tr></table></figure>
-
-<p>2）验证是否配置成功</p>
-<p>在git bash下输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
-
-<p>回车就会看到：<code>You’ve successfully authenticated, but gitee does not provide shell access 。</code></p>
-<p>这就表示已成功连上gitee，相当于服务端就认可你这个配置公钥的客户端是可以安全连接的。</p>
-<p><strong>这里就完成了服务器添加公钥， 就可以正常使用SSH进行仓库的pull &amp; push操作啦</strong></p>
-
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/22/TypeScript-01/" rel="prev" title="TypeScript初探">
+      <i class="fa fa-chevron-left"></i> TypeScript初探
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/2019%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
-      <meta itemprop="name" content="酵父">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="goon Fred">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/31/2019%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">2019年终总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-31 23:59:22" itemprop="dateCreated datePublished" datetime="2019-12-31T23:59:22+08:00">2019-12-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-01 00:07:58" itemprop="dateModified" datetime="2020-01-01T00:07:58+08:00">2020-01-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index">
-                    <span itemprop="name">随想</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一点感悟"><a href="#一点感悟" class="headerlink" title="一点感悟"></a>一点感悟</h1><p>从11月底开始心底就盘算着写点东西了。之前总是临时起意，想写点什么了就拿出手机备忘录，把想说的话润色一番敲进手机，仿佛在自己的箱底藏进了些睿智名言。可三三两两，不甚成型，偶尔翻起来也不知当时是想表达什么。我觉得也是现在这个信息量爆炸的大环境让人耳濡目染，10分钟内就想了解整个世界发生的事情；</p>
-<p>看的是碎片信息，输出的同理。</p>
-<p>陆续过了一个月，年终事情也多，早想开始的个人年终总结被公司的年终考评答辩稿件和工作总结文档挤到了看不到的位置（也算是给自己开脱借口吧，永远不要抱怨自己挤不出时间，还是懒）[对，我就是懒（捂脸🤦‍）]。最终还是对公司年终考评低下了头，陆续用下班时间做了两个礼拜，希望会有好的结果吧[年终奖说的就是你💖]。</p>
-<p>好了，言归正题，2019对我来说是不寻常的一年。还是想正式的回顾一下我的2019年，用不那么零散碎片的文字，有旋律的记录。好让我的2019在印象中再深刻那么一些。</p>
-<h2 id="回顾2019"><a href="#回顾2019" class="headerlink" title="回顾2019"></a>回顾2019</h2><ol>
-<li><code>认真</code>是种能力;</li>
-<li>在自己的努力下换了<code>工作</code>；</li>
-<li>学会了<code>自由泳</code>；</li>
-<li>今年我<code>结婚</code>了</li>
-</ol>
-<h2 id="认真是种能力"><a href="#认真是种能力" class="headerlink" title="认真是种能力"></a>认真是种能力</h2><p>今年年初开始，准确的说是从去年10月份开始，下了决心突破自己的工作现状。既然不满意，为什么不去改变？<code>安稳</code>这个词在每个人眼中都有不同理解，根据自己的经历以及见闻，见仁见智。对于我来说，更像一个赌约。我在2019要通过自己的努力，找到更好的工作。有些讽刺，这或许是我20多年来第一次，在努力某件事上有这种冲劲。像是身体内某天突然苏醒的神经，隐隐的推动着我。</p>
-<p>在这近乎赌约性质的行为过程中，我才认识到认真是种能力。认真做的事才会有趣，才能有成就感。认真是掌控生活必备的基石。</p>
-<p>从前总是：</p>
-<ul>
-<li>游戏随便打打就好了，反正是休闲；</li>
-<li>过年父母教我包饺子，“啊，随便学学就行了，反正是玩的”;</li>
-<li>学习随便学学好了，学那么厉害有什么用啊?；</li>
-</ul>
-<p>游戏不认真，所以没感受到激烈对决胜利的快感；包饺子不认真走过场，下次和朋友聚会，还是不能露一手，甚至完全忘记了怎么做呢。</p>
-<p>需要学习掌握<code>认真</code>，并收放自如的运用，才能游刃有余的生活啊。</p>
-<p>最终在年初，通过自己可能用力过猛的<code>认真</code>，顺利找到了目前来说不错的工作，有了稳定的假期和不错的收入。这不就是<code>认真</code>的回报么？</p>
-<h2 id="学会了自由泳"><a href="#学会了自由泳" class="headerlink" title="学会了自由泳"></a>学会了自由泳</h2><p>之前在朋友间觉得自己游泳还行，也不知道什么时候学会了蛙泳，和朋友出去游泳能一口气游上100多米的蛙泳。这么多年也就会这一种泳姿。今年夏天，在公司附近游泳馆办了张卡，第一次去就被旁边泳道的大爷气场压制了。各种泳姿切换，泳池必备清场泳姿-蝶泳、自由泳、蛙泳仰泳。。大爷如水中美人爷一般的操作着实让我羡慕，那天回来冒出的想法：我怎么不也开始学自由泳呢？</p>
-<p>我是对未知事物很能提起兴趣的人，只要这件事戳中了我最近的兴趣点。那天回来就搜视频看了一晚上的自由泳教学，也是因为找到了个很有趣的游泳教学博主（这里安利一下 ：梦觉教游泳）。如饥似渴的接受了一波云教学，感觉自己昨天的老大爷附体一般的精神，隔了一天迫不及待的又杀回泳池。嗯，什么都不会，瞎划乱蹬，姿势奇葩，只顾着喝水，仿佛受到了整个泳池的瞩目。那天冷静下来了，自由泳原来不是蛙泳这样两天就能学会的泳姿啊……</p>
-<p>坚持了2个月左右，一个游4-5次的频率吧。基本掌握了自由泳技能，从最初的不会换气划手转身打腿配合， 到拼尽全力能游到25米喘不上气，再到慢慢的一口气往返50米，现在的连续游100米。一项技能，就是最初没有理解时寸步难行的艰难，掌握了技巧才知道融会贯通事半功倍。 算是自己的游泳技能进化吧。最近需要再练习一下自由泳的呼吸配合，下一步就是学习蝶泳了哦~加油。</p>
-<h2 id="今年我结婚了"><a href="#今年我结婚了" class="headerlink" title="今年我结婚了"></a>今年我结婚了</h2><p>今年算爱情事业双丰收吧，也算经过自己的努力给自己和对方一个交代。最简练的一个模块也是最重要的，就想婚礼时说的，希望未来每一天都让你像今天一样幸福。现在也慢慢明白了陪伴才是最长情的告白，不只是说说而已，而是要用一生去践行呢。</p>
-<p>有些匆忙，碍于时间。立了flag要在2019年底写完自己的年终总结，也算做到了。</p>
-<p>写于2019.12.31 23:59</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -1006,6 +571,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">2.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型约束"><span class="nav-number">2.1.</span> <span class="nav-text">泛型约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keyof"><span class="nav-number">2.2.</span> <span class="nav-text">keyof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例：多参数泛型约束"><span class="nav-number">2.3.</span> <span class="nav-text">实例：多参数泛型约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中的类"><span class="nav-number">3.</span> <span class="nav-text">ES6中的类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性和方法"><span class="nav-number">3.1.</span> <span class="nav-text">属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态static方法"><span class="nav-number">3.2.</span> <span class="nav-text">静态static方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存取器"><span class="nav-number">3.3.</span> <span class="nav-text">存取器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的私有方法"><span class="nav-number">3.4.</span> <span class="nav-text">类的私有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.5.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例对象"><span class="nav-number">3.6.</span> <span class="nav-text">实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法"><span class="nav-number">3.7.</span> <span class="nav-text">静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super"><span class="nav-number">3.8.</span> <span class="nav-text">super</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数方法"><span class="nav-number">3.9.</span> <span class="nav-text">函数方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">3.10.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型对象"><span class="nav-number">3.11.</span> <span class="nav-text">原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6和ES5继承的区别"><span class="nav-number">3.12.</span> <span class="nav-text">ES6和ES5继承的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TS中的类"><span class="nav-number">4.</span> <span class="nav-text">TS中的类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">4.1.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readonly修饰符"><span class="nav-number">4.2.</span> <span class="nav-text">readonly修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数属性简写"><span class="nav-number">4.3.</span> <span class="nav-text">参数属性简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可选属性"><span class="nav-number">4.4.</span> <span class="nav-text">可选属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存取器-1"><span class="nav-number">4.5.</span> <span class="nav-text">存取器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">4.6.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口约束类"><span class="nav-number">4.7.</span> <span class="nav-text">接口约束类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型中使用类"><span class="nav-number">4.8.</span> <span class="nav-text">泛型中使用类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举"><span class="nav-number">5.</span> <span class="nav-text">枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字枚举"><span class="nav-number">5.1.</span> <span class="nav-text">数字枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串枚举"><span class="nav-number">5.2.</span> <span class="nav-text">字符串枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举接口"><span class="nav-number">5.3.</span> <span class="nav-text">枚举接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译后的枚举"><span class="nav-number">5.4.</span> <span class="nav-text">编译后的枚举</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型推论及兼容性"><span class="nav-number">6.</span> <span class="nav-text">类型推论及兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的可选参数"><span class="nav-number">6.1.</span> <span class="nav-text">函数的可选参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型兼容性"><span class="nav-number">7.</span> <span class="nav-text">类型兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的互相赋值"><span class="nav-number">7.1.</span> <span class="nav-text">函数的互相赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数重载的兼容"><span class="nav-number">7.2.</span> <span class="nav-text">函数重载的兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举的兼容"><span class="nav-number">7.3.</span> <span class="nav-text">枚举的兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的兼容性"><span class="nav-number">7.4.</span> <span class="nav-text">类的兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的双向协变"><span class="nav-number">7.5.</span> <span class="nav-text">函数参数的双向协变</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
