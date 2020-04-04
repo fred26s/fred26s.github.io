@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="goon Fred" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="前言，最近项目用到了Nginx做反向代理，顺便记录一篇博文。 NignxNginx 同 Apache 一样都是一种 Web 服务器，但其轻量级的体积，及高并发等特点广受好评; web服务器说到这个名字了，简单说一下定义：  当我们使用PC并通过浏览器查看网站时，页面访问到的服务器都是我们都可称之为Web服务器。  那web服务器做了什么呢？再等一下（。。估计看文的大家心想，我就是想看看nignx是">
+<meta name="keywords" content="Nginx,服务端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx之于web服务器快速上手">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;04&#x2F;nginx&#x2F;index.html">
+<meta property="og:site_name" content="goon Fred">
+<meta property="og:description" content="前言，最近项目用到了Nginx做反向代理，顺便记录一篇博文。 NignxNginx 同 Apache 一样都是一种 Web 服务器，但其轻量级的体积，及高并发等特点广受好评; web服务器说到这个名字了，简单说一下定义：  当我们使用PC并通过浏览器查看网站时，页面访问到的服务器都是我们都可称之为Web服务器。  那web服务器做了什么呢？再等一下（。。估计看文的大家心想，我就是想看看nignx是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-04T15:59:52.182Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/04/nginx/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Nginx之于web服务器快速上手 | goon Fred</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">goon Fred</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>日志</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
+      <meta itemprop="name" content="酵父">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="goon Fred">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx之于web服务器快速上手
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-04 23:54:18 / 修改时间：23:59:52" itemprop="dateCreated datePublished" datetime="2020-04-04T23:54:18+08:00">2020-04-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>前言，最近项目用到了Nginx做反向代理，顺便记录一篇博文。</p>
+<h2 id="Nignx"><a href="#Nignx" class="headerlink" title="Nignx"></a>Nignx</h2><p>Nginx 同 Apache 一样都是一种 Web 服务器，但其轻量级的体积，及高并发等特点广受好评;</p>
+<h2 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h2><p>说到这个名字了，简单说一下定义：</p>
+<blockquote>
+<p>当我们使用PC并通过浏览器查看网站时，页面访问到的服务器都是我们都可称之为Web服务器。</p>
+</blockquote>
+<h3 id="那web服务器做了什么呢？"><a href="#那web服务器做了什么呢？" class="headerlink" title="那web服务器做了什么呢？"></a>那web服务器做了什么呢？</h3><p>再等一下（。。估计看文的大家心想，我就是想看看nignx是什么，怎么牵扯出了这么多东西），</p>
+<p>了解web服务器做了什么之前，我们先说一下使用浏览器访问页面是怎么一个流程；</p>
+<ol>
+<li>用户使用浏览器，输入想要访问的网址（<strong>域名</strong>：例如<code>http://www.baidu.com</code>）；</li>
+<li>浏览器访问<strong>DNS</strong>服务器，查询得到域名对应的<strong>IP</strong>；</li>
+<li>浏览器通过<strong>IP</strong>，向<strong>web服务器</strong>发送资源请求；  （注意这里web服务器登场了）</li>
+<li><strong>web服务器</strong>根据请求，向<strong>计算机</strong>获取所需资源；</li>
+<li><strong>web服务器</strong>将获取到的资源返回给浏览器；</li>
+<li><strong>浏览器</strong>接收到返回的资源（例如HTML），<strong>解析</strong>成页面，展示给用户；</li>
+</ol>
+<p>那web服务器到底做什么了？</p>
+<p>一般web服务器都会有配置映射文件地址，也就是文件路径和URL的关系映射；</p>
+<p>我们看第4步，web服务器接到请求<code>URL</code>后，解析<code>URL</code>字符串；</p>
+<p>通过解析得到的<code>URL</code>，拿到映射的文件路径，在计算器磁盘中就可以获取静态资源，然后将资源返回给浏览器；</p>
+<p>所以web服务器就是做了<strong>静态资源分配</strong>这个事，供外界远程访问；</p>
+<p>也是web服务器最常用的场景。</p>
+<p>严格意义上web服务器只负责处理<code>http</code>协议，管理静态资源，其他内容都<strong>转交</strong>给其他应用服务器来做；</p>
+<p>怎么转交呢？ </p>
+<p>那么就是使用Nignx的<strong>反向代理</strong>功能了，这也就是Nignx常见的使用方式；</p>
+<h3 id="常见的web服务器有哪些呢？"><a href="#常见的web服务器有哪些呢？" class="headerlink" title="常见的web服务器有哪些呢？"></a>常见的web服务器有哪些呢？</h3><p>Nginx、Apache、Lighttpd等等很多；</p>
+<h2 id="Nginx使用"><a href="#Nginx使用" class="headerlink" title="Nginx使用"></a>Nginx使用</h2><p>了解Nginx是什么后，那么赶紧说一下怎么使用吧。</p>
+<p>分为三步：</p>
+<p>1.下载安装</p>
+<p>到官网直接下载windows版就可以了，解压即可；</p>
+<p>2.运行Nignx</p>
+<p>使用CMD进入到解压目录，命令<code>start nginx</code>看到一个窗口闪现，nginx就成功启动了！</p>
+<p>是不是很简单…：|</p>
+<p>3.验证</p>
+<p>浏览器打开<code>lacalhost:80</code>，如果显示nginx欢迎页，则表示启动成功；</p>
+<p>到这里Nginx已经ok了！</p>
+<p>接下来就告诉他，怎么让它变成一个成熟的nginx，承担起上面提到<strong>web服务器</strong>的责任吧</p>
+<h3 id="静态资源托管"><a href="#静态资源托管" class="headerlink" title="静态资源托管"></a>静态资源托管</h3><p>上面也说了浏览器获取网页的步骤，那么当浏览器发送请求给web服务器的时候，我们现在手握nginx应该怎么办呢？</p>
+<p><strong>配置代理映射</strong>即可！</p>
+<p>打开nginx解压路径<code>nginx-1.9.9\conf\nginx.conf</code>这个<strong>配置文件</strong>；</p>
+<p>这个文件就是ngnix的配置文件，所有你需要的功能配置，都在这个文件里搞定；</p>
+<p>打开到35行左右，会发现下面这段代码，这里就主要配置的内容了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;               // nginx服务端口</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;                         // 现在映射的资源是默认的nginx欢迎页（相对路径）</span><br><span class="line">            index  index.html index.htm;      // 这里index表示默认文件，nginx会优先从这些文件里匹配</span><br><span class="line">        &#125;</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里举个栗子，</p>
+<p>如果我们要实现图片资源的访问，浏览器输入<code>location:80/public/cake.jpg</code>，</p>
+<p>希望获取到电脑上想要的<code>E:/nginx-1.12.9/static/cake.jpg</code>这张图片时；</p>
+<p>那我们用location来匹配文件映射即可， 上代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;               // nginx服务端口</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;                        </span><br><span class="line">            index  index.html index.htm;   </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">		location /public &#123;</span><br><span class="line">            alias   E:/nginx-1.12.9/static/;   //alias表示将location映射到的路径替换</span><br><span class="line">		   autoindex on;                 //表示可以访问目录，显示文件列表（类似ftp）</span><br><span class="line">        &#125;</span><br><span class="line">		...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过这个配置就可以实现浏览器输入的URL虽然是<code>location:80/public/cake.jpg</code>，</p>
+<p>但我们的web服务器nginx收到后，将其中的<code>public</code>替换为<code>E:/nginx-1.12.9/static/</code>，</p>
+<p>所以最终指向了文件路径<code>E:/nginx-1.12.9/static/cake.jpg</code>；</p>
+<p>这样就实现了<strong>web服务器</strong>的静态资源托管！</p>
+<h3 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h3><p>这里在说明一下location中常用的一些配置属性；</p>
+<ol>
+<li><h3 id="root和alias-设置静态资源根目录"><a href="#root和alias-设置静态资源根目录" class="headerlink" title="root和alias  ===  设置静态资源根目录"></a>root和alias  ===  设置静态资源根目录</h3><p>alias：表示直接替换掉location指定的url；</p>
+<p>​            <strong>需要注意alias指定的url，结尾要以<code>/</code>结尾！否则会出现无法匹配</strong></p>
+<p>root：表示将新路径拼接到location之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如:</span><br><span class="line">location /public &#123;</span><br><span class="line">      root E:/nginx-1.12.9/static/;  // 这里的最终映射URL为 E:/nginx-1.12.9/static/public</span><br><span class="line">      index  index.html index.htm;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="autoindex-访问目录时列出文件列表"><a href="#autoindex-访问目录时列出文件列表" class="headerlink" title="autoindex === 访问目录时列出文件列表"></a>autoindex === 访问目录时列出文件列表</h3><p>设置后，该地址打开会生成目录页面，类似于ftp服务；</p>
+</li>
+<li><h3 id="index-优先匹配文件"><a href="#index-优先匹配文件" class="headerlink" title="index === 优先匹配文件"></a>index === 优先匹配文件</h3><p>这里设置的文件，如果访问的是目录文件夹地址，nginx会优先匹配指定文件，如果匹配到，则直接展示；</p>
+</li>
+</ol>
+<p>这样就配置好了基础的web服务器，实现了基本功能；</p>
+<p>虽然web服务器的作用很简单，目的也很明确，就是管理静态资源；</p>
+<p>但nginx能做的显然不止这么点，无论是反向代理负载均衡、gzip压缩、跨域设置等等很多功能都可以简单做到；</p>
+<p>实现方式都是在配置文件中设置，碍于篇幅，暂不赘述了。</p>
+<p>先把nginx用起来吧~ ：)</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" rel="tag"># 服务端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/23/typescript-02/" rel="prev" title="typescript轻度进阶">
+      <i class="fa fa-chevron-left"></i> typescript轻度进阶
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nignx"><span class="nav-number">1.</span> <span class="nav-text">Nignx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务器"><span class="nav-number">2.</span> <span class="nav-text">web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#那web服务器做了什么呢？"><span class="nav-number">2.1.</span> <span class="nav-text">那web服务器做了什么呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的web服务器有哪些呢？"><span class="nav-number">2.2.</span> <span class="nav-text">常见的web服务器有哪些呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx使用"><span class="nav-number">3.</span> <span class="nav-text">Nginx使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态资源托管"><span class="nav-number">3.1.</span> <span class="nav-text">静态资源托管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置属性"><span class="nav-number">3.2.</span> <span class="nav-text">配置属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root和alias-设置静态资源根目录"><span class="nav-number">3.3.</span> <span class="nav-text">root和alias  ===  设置静态资源根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autoindex-访问目录时列出文件列表"><span class="nav-number">3.4.</span> <span class="nav-text">autoindex === 访问目录时列出文件列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-优先匹配文件"><span class="nav-number">3.5.</span> <span class="nav-text">index === 优先匹配文件</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="酵父"
+      src="https://i.loli.net/2019/11/24/1eJtrwT9h7oLmW2.png">
+  <p class="site-author-name" itemprop="name">酵父</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">酵父</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"hOffset":-60},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
